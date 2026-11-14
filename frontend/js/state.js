@@ -1,0 +1,56 @@
+// Элементы страницы и состояние экрана — одно на всё приложение.
+import { $ } from './util.js';
+
+export const el = {
+  app: $('#app'), stage: $('#stage'), video: $('#video'), still: $('#still'), overlay: $('#overlay'),
+  scanline: $('#scanline'), reticle: $('#reticle'), backBtn: $('#backBtn'),
+  eqChip: $('#eqChip'), eqName: $('#eqName'), eqSub: $('#eqSub'), eqDot: $('#eqChip .dot'), eqChev: $('#eqChev'),
+  sysDot: $('#sysDot'), hint: $('#hint'), empty: $('#empty'), progress: $('#progress'), progressText: $('#progressText'), progressMeta: $('#progressMeta'),
+  workbar: $('#workbar'), sessionInfo: $('#sessionInfo'), addShot: $('#addShot'), inspectBtn: $('#inspectBtn'), captureAction: $('#captureAction'), focusBar: $('#focusBar'),
+  dock: $('#captureDock'), dockToggle: $('#dockToggle'), photoTools: $('#photoTools'), zoomReset: $('#zoomReset'), marksToggle: $('#marksToggle'),
+  dockCaption: $('#dockCaption'), autoBtn: $('#autoBtn'), leftBtn: $('#leftBtn'), rightBtn: $('#rightBtn'),
+  shutter: $('#shutter'), shutterIcon: $('#shutterIcon'),
+  scrim: $('#scrim'), sheet: $('#sheet'), sheetTitle: $('#sheetTitle'), sheetSub: $('#sheetSub'),
+  sheetBody: $('#sheetBody'), sheetFoot: $('#sheetFoot'), sheetBack: $('#sheetBack'), sheetClose: $('#sheetClose'), sheetTools: $('#sheetTools'),
+  toast: $('#toast'), file: $('#fileInput'),
+};
+
+export const state = {
+  camera: false,
+  cameraError: '',
+  frozen: false,
+  stillUrl: null,
+  stillSize: null,
+  eqId: null,
+  card: null,
+  hints: [],
+  analysis: null,      // {items, running, result, id, seconds}
+  inspection: null,
+  inspectionTab: 'nodes',
+  briefing: null,
+  focusReturn: null,
+  selectedObservation: null,
+  reviewedNodes: new Set(),
+  frameLoading: false,
+  frameRevision: 0,
+  shownKeys: new Set(), // метки, анимация появления которых уже проиграна
+  identifying: false,
+  progressBase: '',
+  progressT0: 0,
+  hintHidden: false,
+  auto: false,
+  autoStable: 0,
+  lastAuto: 0,
+  lastMain: null,
+  status: null,
+  eqTab: 'overview',
+  sheetStack: [],
+  sheetSpec: null,
+  author: localStorage.getItem('author') || '',
+  user: null,
+  frameSource: 'camera',
+  view: { scale: 1, x: 0, y: 0 },
+  marksVisible: true,
+  controlsCollapsed: false,
+  focusedKey: null,
+};

@@ -1,0 +1,8 @@
+# Скрипты для macOS/Linux должны иметь LF, иначе shebang не сработает; .bat — CRLF.
+*.sh  text eol=lf
+*.py  text eol=lf
+*.bat text eol=crlf
+*.jpg binary
+*.png binary
+*.pdf binary
+*.zip binary

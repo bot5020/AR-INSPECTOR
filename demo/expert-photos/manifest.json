@@ -1,0 +1,31 @@
+{
+  "model": "lmstudio-community/Qwen3.5-4B-MLX-4bit",
+  "provider_model_id": "vlm",
+  "prompt_version": "inspect-36d13c54a7",
+  "images": [
+    {
+      "file": "01_Насос_общий.jpg",
+      "equipment_id": "PUMP-001",
+      "use": "Основной: коррозия корпуса насоса",
+      "sha256": "b2e1115b5cd404b97596bec8d65d193e140ce885ed86fd77c8799d8dd8ce7e5e"
+    },
+    {
+      "file": "02_Тот_же_насос_крупно.jpg",
+      "equipment_id": "PUMP-001",
+      "use": "Досъёмка того же насоса, тот же осмотр",
+      "sha256": "289de0e090afaacbee1804601da4a207da92378b730dfc107738dcef71c632ab"
+    },
+    {
+      "file": "03_Контактор_с_нагаром.jpg",
+      "equipment_id": "CAB-003",
+      "use": "Основной: нагар главных контактов",
+      "sha256": "0f54706e9fc3efbd87e03a2f484b99a20ebf22b890adaa7a423d89b2705d97e8"
+    },
+    {
+      "file": "04_Трансформатор_резерв.jpg",
+      "equipment_id": "TR-001",
+      "use": "Резерв: бак и вводы, спорные мелкие детали",
+      "sha256": "b2bfd59aab9be81c0bfd6ad792d065d8a3c47c060603b7cab9058ca5060c1a2a"
+    }
+  ]
+}

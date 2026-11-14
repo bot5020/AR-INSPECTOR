@@ -1,0 +1,43 @@
+{
+  "about": "Эталон для scripts/evaluate_vision.py: что модель должна найти на демо-фото. Это малый проверочный набор для сравнения моделей и версий промпта, а не промышленная оценка точности. Запись «A|B» — подходит любой из узлов.",
+  "cases": [
+    {
+      "case": "pump_unit",
+      "photo": "demo/photos/pump_unit_1.jpg",
+      "equipment": "PUMP-001",
+      "expect_found": ["PUMP-001-MOTOR", "PUMP-001-PUMP", "PUMP-001-COUP"],
+      "expect_alert": [],
+      "expect_ok": []
+    },
+    {
+      "case": "burned_contactor",
+      "photo": "demo/photos/contactor_burned.jpg",
+      "equipment": "CAB-003",
+      "expect_found": ["CAB-003-KM-CONT|CAB-003-KM"],
+      "expect_alert": ["CAB-003-KM-CONT|CAB-003-KM"],
+      "expect_ok": ["CAB-003-KV"]
+    },
+    {
+      "case": "transformer",
+      "photo": "demo/photos/transformer_tmg.jpg",
+      "equipment": "TR-001",
+      "expect_found": ["TR-001-TANK", "TR-001-HV|TR-001-LV"],
+      "expect_alert": [],
+      "expect_ok": []
+    },
+    {
+      "case": "flange_corrosion",
+      "photo": "demo/photos/flange_corrosion.jpg",
+      "equipment": "PUMP-001",
+      "expect_found": ["PUMP-001-FLANGE"],
+      "expect_alert": ["PUMP-001-FLANGE"],
+      "expect_ok": []
+    },
+    {
+      "case": "blank_frame",
+      "photo": null,
+      "equipment": "PUMP-001",
+      "expect_refused": true
+    }
+  ]
+}

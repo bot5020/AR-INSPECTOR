@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="AR-Инспектор">
+  <title>AR-Инспектор</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div id="app" data-mode="scan">
+    <!-- Камера или снимок на весь экран -->
+    <main id="stage" class="stage">
+      <video id="video" playsinline muted autoplay></video>
+      <img id="still" alt="" hidden>
+      <div id="scanline" class="scanline" hidden></div>
+      <div id="overlay" class="overlay" aria-live="polite"></div>
+      <div id="reticle" class="reticle" hidden aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </main>
+
+    <!-- Верхняя панель -->
+    <header class="top">
+      <button id="backBtn" class="glass icon-btn" type="button" data-action="change-eq" aria-label="Вернуться к началу" hidden></button>
+      <button id="eqChip" class="glass eq-chip" type="button" data-action="eq-chip">
+        <span class="dot" data-level=""></span>
+        <span class="eq-chip__text">
+          <span id="eqName" class="eq-chip__name">Оборудование не выбрано</span>
+          <span id="eqSub" class="eq-chip__sub">Наведите камеру на QR-метку</span>
+        </span>
+        <span id="eqChev" class="eq-chip__chev"></span>
+      </button>
+      <button id="sysBtn" class="glass icon-btn" type="button" data-action="system" aria-label="Состояние системы">
+        <span id="sysDot" class="sys-dot" data-state=""></span>
+      </button>
+    </header>
+
+    <div id="sessionInfo" class="session-info" role="status"></div>
+    <!-- Подсказка / итог анализа -->
+    <section id="hint" class="glass hint" hidden></section>
+
+    <!-- Камера недоступна -->
+    <section id="empty" class="glass empty" hidden></section>
+
+    <!-- Индикатор работы ИИ -->
+    <div id="progress" class="glass progress" role="status" hidden><span class="spinner"></span><span class="progress__body"><b id="progressText"></b><span id="progressMeta"></span></span></div>
+
+    <div id="photoTools" class="glass photo-tools" aria-label="Просмотр снимка" hidden>
+      <button type="button" data-action="zoom-out" aria-label="Уменьшить">−</button>
+      <button id="zoomReset" type="button" data-action="zoom-reset" aria-label="Вписать снимок в экран">1×</button>
+      <button type="button" data-action="zoom-in" aria-label="Приблизить">+</button>
+      <button id="marksToggle" type="button" data-action="toggle-marks" aria-label="Скрыть разметку" aria-pressed="true" hidden></button>
+    </div>
+    <button id="captureAction" class="glass capture-action" type="button" data-action="primary" hidden></button>
+    <nav id="workbar" class="workbar" aria-label="Работа с осмотром">
+      <button id="addShot" class="glass workbar__button" type="button" data-action="add-shot">Добавить снимок</button>
+      <button id="inspectBtn" class="glass workbar__button" type="button" data-action="inspection">Осмотр</button>
+    </nav>
+    <nav id="focusBar" class="glass focus-bar" aria-label="Просмотр выбранного узла" hidden>
+      <button type="button" data-action="focus-back">Назад к карточке узла</button>
+      <button type="button" data-action="focus-overview">Весь снимок</button>
+    </nav>
+
+    <!-- Шторка -->
+    <div id="scrim" class="scrim" hidden></div>
+    <section id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+      <div class="sheet__grab" aria-hidden="true"></div>
+      <div class="sheet__head">
+        <button id="sheetBack" class="icon-btn icon-btn--sm" type="button" data-action="sheet-back" aria-label="Назад" hidden></button>
+        <div class="sheet__titles">
+          <h2 id="sheetTitle" class="sheet__title"></h2>
+          <div id="sheetSub" class="sheet__sub"></div>
+        </div>
+        <div id="sheetTools" class="sheet__tools" hidden></div>
+        <button id="sheetClose" class="icon-btn icon-btn--sm" type="button" data-action="close" aria-label="Закрыть"></button>
+      </div>
+      <div id="sheetBody" class="sheet__body"></div>
+      <div id="sheetFoot" class="sheet__foot" hidden></div>
+    </section>
+
+    <div id="toast" class="glass toast" role="status" hidden></div>
+    <input id="fileInput" type="file" accept="image/*" hidden>
+  </div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

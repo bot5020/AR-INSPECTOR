@@ -1,0 +1,27 @@
+.env
+.DS_Store
+presentation/deck/assets/app-current/*.log
+.venv/
+.claude/
+__pycache__/
+*.pyc
+data/
+models/
+*.pt
+!demo/**
+reports/node_modules
+
+# Local ML experiments: reproducible scripts are tracked, downloaded runtimes are not.
+experiments/ml/.venv/
+experiments/ml/AnomalyCLIP/
+experiments/ml/AnomalyDINO/
+experiments/ml/weights/
+experiments/ml/torch-cache/
+experiments/ml/comparison/dino-data/
+*.pth
+*.safetensors
+experiments/ml/comparison/clip-org/maps/
+
+# Данные организаторов: лежат локально (yandex/ или materials/yandex), в репозиторий не кладём.
+yandex/
+materials/

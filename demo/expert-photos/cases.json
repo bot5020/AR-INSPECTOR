@@ -1,0 +1,53 @@
+{
+  "about": "Подготовленные примеры демо, не независимая оценка точности. Автоматический балл проверяет выбранные узлы, но не все лишние метки и не точность рамок. См. README.md.",
+  "cases": [
+    {
+      "case": "pump_overview",
+      "photo": "demo/expert-photos/01_Насос_общий.jpg",
+      "equipment": "PUMP-001",
+      "expect_found": [
+        "PUMP-001-MOTOR",
+        "PUMP-001-COUP",
+        "PUMP-001-PUMP"
+      ],
+      "expect_alert": [
+        "PUMP-001-PUMP"
+      ]
+    },
+    {
+      "case": "pump_closeup",
+      "photo": "demo/expert-photos/02_Тот_же_насос_крупно.jpg",
+      "equipment": "PUMP-001",
+      "expect_found": [
+        "PUMP-001-COUP",
+        "PUMP-001-PUMP"
+      ],
+      "expect_alert": [
+        "PUMP-001-COUP"
+      ]
+    },
+    {
+      "case": "burned_contactor",
+      "photo": "demo/expert-photos/03_Контактор_с_нагаром.jpg",
+      "equipment": "CAB-003",
+      "expect_found": [
+        "CAB-003-KM-CONT|CAB-003-KM"
+      ],
+      "expect_alert": [
+        "CAB-003-KM-CONT|CAB-003-KM"
+      ]
+    },
+    {
+      "case": "transformer",
+      "photo": "demo/expert-photos/04_Трансформатор_резерв.jpg",
+      "equipment": "TR-001",
+      "expect_found": [
+        "TR-001-TANK",
+        "TR-001-HV|TR-001-LV"
+      ],
+      "expect_ok": [
+        "TR-001-TANK"
+      ]
+    }
+  ]
+}
